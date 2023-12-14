@@ -1,18 +1,30 @@
 import { SettingsTabs } from "@/components/SettingsTabs";
 import { InputControl, InputPrefix, InputRoot } from "@/components/Input";
 import { Select } from "@/components/Select";
+import { twMerge } from "tailwind-merge";
 
 export default function Home() {
   return (
     <>
-      <h1 className="text-3xl font-medium text-zinc-900">Settings</h1>
+      <h1
+        className={twMerge(
+          "text-3xl font-medium text-zinc-900",
+          "dark:text-zinc-100",
+        )}
+      >
+        Settings
+      </h1>
 
       <SettingsTabs />
 
       {/* Content */}
       <div className="mt-6 flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-zinc-200 pb-5">
+        <div
+          className={twMerge(
+            "flex flex-col justify-between gap-4 border-b border-zinc-200 pb-5 lg:flex-row lg:items-center",
+          )}
+        >
           <div className="space-y-1">
             <h2 className="text-lg font-medium text-zinc-900">Personal Info</h2>
             <span className="text-sm text-zinc-500">
@@ -35,20 +47,29 @@ export default function Home() {
             </button>
           </div>
         </div>
+
         {/* Form */}
         <form id="formSettings" className="mt-6 flex w-full flex-col gap-5">
           {/* Line 1 */}
-          <div className="grip grid-cols-form gap-3">
+          <div className="lg:grip flex flex-col gap-3 lg:grid-cols-form">
             <label
               htmlFor="firstName"
               className="text-sm font-medium text-zinc-700"
             >
-              Name
+              First Name
             </label>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="flex flex-col gap-6 lg:grid lg:grid-cols-2">
               <InputRoot>
                 <InputControl id="firstName" defaultValue="Marcos" />
               </InputRoot>
+
+              <label
+                htmlFor="firstName"
+                className="text-sm font-medium text-zinc-700 lg:sr-only"
+              >
+                Last Name
+              </label>
+
               <InputRoot>
                 <InputControl id="lastName" defaultValue="Fraga" />
               </InputRoot>
