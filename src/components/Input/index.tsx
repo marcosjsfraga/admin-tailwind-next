@@ -1,11 +1,13 @@
 import { ComponentProps } from "react";
 
 interface InputPrefixProps extends ComponentProps<"div"> {}
+
 export function InputPrefix(props: InputPrefixProps) {
   return <div {...props} />;
 }
 
 interface InputControlProps extends ComponentProps<"input"> {}
+
 export function InputControl(props: InputControlProps) {
   return (
     <input
@@ -16,6 +18,7 @@ export function InputControl(props: InputControlProps) {
 }
 
 export interface InputRootProps extends ComponentProps<"div"> {}
+
 export function InputRoot(props: InputRootProps) {
   return (
     <div
